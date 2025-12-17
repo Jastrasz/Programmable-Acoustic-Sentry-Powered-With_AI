@@ -28,7 +28,7 @@ While originally designed for **Drone Detection**, the architecture is completel
 
 1.  Clone the repository:
     ```bash
-    git clone [https://github.com/Jastrasz/Acoustic-Sentry.git](https://github.com/Jastrasz/Acoustic-Sentry.git)
+    git clone (https://github.com/Jastrasz/Acoustic-Sentry.git)
     cd Acoustic-Sentry
     ```
 
@@ -48,7 +48,7 @@ While originally designed for **Drone Detection**, the architecture is completel
 
 1.  Place your trained `.tflite` model in the `models/` directory and update `config.py`.
 2.  Run the detector specifying the microphone index (find indices via `arecord -l`):
-
+3. For example:
     ```bash
     python detector.py 2
     ```
