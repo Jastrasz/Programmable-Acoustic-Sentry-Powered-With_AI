@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# Data and Models (Users should provide their own or download separately)
+dataset/
+models/*.h5
+# Keep the .tflite model if you want to provide a demo, otherwise ignore it:
+# models/*.tflite
+
+# Temp folders created by the script
+temp_audio/
+temp_spec/
+spectrograms_output/
+audio_temp/
