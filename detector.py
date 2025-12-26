@@ -40,12 +40,12 @@ except Exception as e:
     sys.exit(1)
 
 def analyze_spectrogram(image_path):
-    """Run inference on the generated spectrogram."""
+    """Run inference on the generated spectrogram"""
     try:
         img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
         if img is None: return 0.0
         
-        # Preprocessing matching the training phase
+        # Preprocessing the training phase
         img = cv2.resize(img, config.IMAGE_SIZE)
         img = img.astype('float32') / 255.0
         img = np.expand_dims(img, axis=-1)
@@ -54,7 +54,7 @@ def analyze_spectrogram(image_path):
         interpreter.set_tensor(input_details[0]['index'], img)
         interpreter.invoke()
         output_data = interpreter.get_tensor(output_details[0]['index'])
-        return output_data[0][0] # Returns confidence score (0.0 - 1.0)
+        return output_data[0][0]
     except Exception as e:
         print(f"Inference Error: {e}")
         return 0.0
@@ -86,7 +86,6 @@ def create_spectrogram(audio_path, output_path, mic_index):
             print(f" TARGET DETECTED! [Mic {mic_index}]")
             print(f" Confidence: {confidence*100:.1f}%")
             print("!!!" * 15 + "\n")
-            # Here you can add code to trigger GPIO, send API request, etc.
         else:
             print(f"[Mic {mic_index}] Clear. (Conf: {confidence*100:.1f}%)")
 
